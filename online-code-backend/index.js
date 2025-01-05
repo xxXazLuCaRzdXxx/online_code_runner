@@ -58,7 +58,7 @@ app.post('/run', async (req, res) => {
     return res.status(503).json({ error: 'Container not available' });
   }
 
-  // Still using os.tmpdir() for cross-platform file writing
+  // os.tmpdir() for cross-platform file writing
   const tempDir = os.tmpdir();
   const scriptFileName = `script.${ext}`;
   const scriptFilePath = path.join(tempDir, scriptFileName);
@@ -69,7 +69,7 @@ app.post('/run', async (req, res) => {
     await fs.writeFile(inputFilePath, input);
 
     const execConfig = {
-      Cmd: [...cmd, `/tmp/${scriptFileName}`],  // Use Docker's internal path
+      Cmd: [...cmd, `/tmp/${scriptFileName}`],
       AttachStdout: true,
       AttachStderr: true,
     };
