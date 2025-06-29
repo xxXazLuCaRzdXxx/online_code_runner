@@ -5,12 +5,12 @@ Welcome to the Online Code Runner web application! This project allows you to ex
 ## Prerequisites
 Before running the backend, ensure you have Docker Desktop installed and running on your machine. You can download it from Docker's official website.
 
-## Step 0: Run the frontend (use the online_code_runner dir):
+## Step 0: Run the frontend (use the online-code-runner dir):
 
 npm run start
 
 ## For the java backend:
-## Step 1: Run the backend (use the java_code_runner dir):
+## Step 1: Run the backend (use the java-code-runner dir):
 
 java -jar target/java-code-runner-0.0.1-SNAPSHOT.jar
 
@@ -29,7 +29,7 @@ docker pull node:14
 
 docker pull ruby:2.7
 
-## Step 2: Run the backend (use the online_code_backend):
+## Step 2: Run the backend (use the online-code-backend dir):
 
 node index.js
 
