@@ -5,8 +5,7 @@ Welcome to the Online Code Runner web application! This project allows you to ex
 ## Prerequisites
 Before running the backend, ensure you have Docker Desktop installed and running on your machine. You can download it from Docker's official website.
 
-## Step 0: 
-Start the frontend by running (use the online_code_runner dir):
+## Step 0: Run the frontend (use the online_code_runner dir):
 
 npm run start
 
@@ -30,7 +29,7 @@ docker pull node:14
 
 docker pull ruby:2.7
 
-## Step 2: Run the backend (use the online_code_runner):
+## Step 2: Run the backend (use the online_code_backend):
 
 node index.js
 
