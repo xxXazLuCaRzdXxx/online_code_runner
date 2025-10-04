@@ -6,6 +6,7 @@ const os = require('os');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const crypto = require('crypto');
 
 const app = express();
 const port = 5000;
@@ -59,17 +60,25 @@ app.post('/run', async (req, res) => {
   }
 
   // os.tmpdir() for cross-platform file writing
+  const uniqueId = crypto.randomBytes(16).toString('hex');
+
   const tempDir = os.tmpdir();
-  const scriptFileName = `script.${ext}`;
+  const scriptFileName = `${uniqueId}.${ext}`; 
   const scriptFilePath = path.join(tempDir, scriptFileName);
-  const inputFilePath = path.join(tempDir, 'input.txt');
+  const inputFileName = `${uniqueId}.txt`
+  const inputFilePath = path.join(tempDir, `${uniqueId}.txt`);
+
 
   try {
     await fs.writeFile(scriptFilePath, code);
     await fs.writeFile(inputFilePath, input);
 
     const execConfig = {
-      Cmd: [...cmd, `/tmp/${scriptFileName}`],
+      Cmd: [
+        'sh',
+        '-c',
+        `${cmd[0]} /tmp/${scriptFileName} < /tmp/${inputFileName}`
+      ],
       AttachStdout: true,
       AttachStderr: true,
     };
