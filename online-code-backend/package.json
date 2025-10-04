@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dockerode": "^4.0.2"
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dockerode": "^4.0.9",
+    "express": "^5.1.0"
   }
 }
